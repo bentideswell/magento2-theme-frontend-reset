@@ -1,0 +1,163 @@
+{
+    "name": "fishpig/magento2-theme-frontend-reset",
+    "description": "Base and bloat free theme for Magento 2.",
+    "autoload": {
+        "files": [
+            "src/magento2-theme/registration.php",
+            "src/magento2-theme-app/registration.php"
+        ],
+        "psr-4": {
+            "FishPig\\ThemeApp\\": "src/magento2-theme-app"
+        }
+    },
+    "require": {
+        "php": "~8.2.0",
+        "magento/framework": "103.0.*",
+        "bentideswell/magento2-toolbox": "*",
+        "fishpig/magento2-cart-cookie": "*",
+        "fishpig/magento2-smtp": "*",
+        "fishpig/magento2-lazy-knockout-js": "*",
+        "fishpig/magento2-noroute-logger": "*",
+        "fishpig/magento2-force-seo-urls": "*",
+        "fishpig/magento2-remove-bundle": "*",
+        "fishpig/magento2-remove-captcha": "*",
+        "fishpig/magento2-remove-new-relic-reporting": "*",
+        "fishpig/magento2-remove-recaptcha": "*",
+        "fishpig/magento2-remove-admin-notification": "*",
+        "fishpig/magento2-remove-weee": "*",
+        "fishpig/magento2-remove-instant-purchase": "*",
+        "fishpig/magento2-remove-multishipping": "*",
+        "fishpig/magento2-remove-msrp": "*",
+        "fishpig/magento2-remove-import-export": "*",
+        "fishpig/magento2-remove-backup": "*",
+        "fishpig/magento2-remove-product-video": "*",
+        "fishpig/magento2-remove-product-alert": "*",
+        "fishpig/magento2-remove-gift-message": "*",
+        "fishpig/magento2-remove-downloadable": "*",
+        "fishpig/magento2-remove-swatches": "*",
+        "fishpig/magento2-remove-compare": "*",
+        "fishpig/magento2-remove-offline-shipping": "*",
+        "fishpig/magento2-fpunit": "^1.0",
+        "fishpig/magento2-flow": "*",
+        "fishpig/magento2-pagespeed": "*",
+        "fishpig/magento2-critical-css": "*"
+    },
+    "replace": {
+        "magento/language-de_de": "*",
+        "magento/language-en_us": "*",
+        "magento/language-es_es": "*",
+        "magento/language-fr_fr": "*",
+        "magento/language-nl_nl": "*",
+        "magento/language-pt_br": "*",
+        "magento/language-zh_hans_cn": "*",
+
+        "magento/google-shopping-ads": "*",
+        "magento/module-remote-storage": "*",
+        "magento/module-aws-s3": "*",
+        "league/flysystem-aws-s3-v3": "*",
+
+        "temando/module-shipping": "*",
+        "magento/module-fedex": "*",
+        "magento/module-ups": "*",
+        "magento/module-usps": "*",
+        "magento/module-dhl": "*",
+
+        "magento/page-builder": "*",
+
+        "magento/module-two-factor-auth": "*",
+
+        "adobe-commerce/adobe-ims-metapackage": "*",
+        "magento/adobe-stock-integration": "*",
+
+        "magento/module-login-as-customer": "*",
+        "magento/module-login-as-customer-admin-ui": "*",
+        "magento/module-login-as-customer-api": "*",
+        "magento/module-login-as-customer-assistance": "*",
+        "magento/module-login-as-customer-frontend-ui": "*",
+        "magento/module-login-as-customer-graph-ql": "*",
+        "magento/module-login-as-customer-log": "*",
+        "magento/module-login-as-customer-page-cache": "*",
+        "magento/module-login-as-customer-quote": "*",
+        "magento/module-login-as-customer-sales": "*",
+
+        "magento/module-send-friend": "*",
+        "magento/module-send-friend-graph-ql": "*",
+
+        "magento/module-rss": "*",
+
+        "magento/module-cardinal-commerce": "*",
+
+        "magento/module-google-adwords": "*",
+        "magento/module-google-gtag": "*",
+        "magento/module-google-optimizer": "*",
+
+        "magento/module-swagger": "*",
+        "magento/module-swagger-webapi": "*",
+        "magento/module-swagger-webapi-async": "*",
+
+        "magento/module-admin-analytics": "*",
+        "magento/module-sample-data": "*",
+        "magento/module-analytics": "*",
+        "magento/module-catalog-analytics": "*",
+        "magento/module-customer-analytics": "*",
+        "magento/module-google-analytics": "*",
+        "magento/module-quote-analytics": "*",
+        "magento/module-review-analytics": "*",
+        "magento/module-sales-analytics": "*",
+
+        "magento/module-release-notification": "*",
+
+        "magento/module-persistent": "*",
+
+        "magento/module-marketplace": "*",
+
+        "magento/module-securitytxt": "*",
+
+        "magento/module-ampq": "*",
+
+        "magento/module-media-content": "*",
+        "magento/module-media-content-api": "*",
+        "magento/module-media-content-catalog": "*",
+        "magento/module-media-content-cms": "*",
+        "magento/module-media-content-synchronization": "*",
+        "magento/module-media-content-synchronization-api": "*",
+        "magento/module-media-content-synchronization-catalog": "*",
+        "magento/module-media-content-synchronization-cms": "*",
+
+        "magento/module-media-gallery": "*",
+        "magento/module-media-gallery-api": "*",
+        "magento/module-media-gallery-catalog": "*",
+        "magento/module-media-gallery-catalog-integration": "*",
+        "magento/module-media-gallery-catalog-ui": "*",
+        "magento/module-media-gallery-cms-ui": "*",
+        "magento/module-media-gallery-integration": "*",
+        "magento/module-media-gallery-metadata": "*",
+        "magento/module-media-gallery-metadata-api": "*",
+        "magento/module-media-gallery-renditions": "*",
+        "magento/module-media-gallery-renditions-api": "*",
+        "magento/module-media-gallery-synchronization": "*",
+        "magento/module-media-gallery-synchronization-api": "*",
+        "magento/module-media-gallery-synchronization-metadata": "*",
+        "magento/module-media-gallery-ui": "*",
+        "magento/module-media-gallery-ui-api": "*",
+
+        "magento/theme-frontend-blank": "*",
+        "magento/theme-frontend-luma": "*",
+
+        "paypal/module-braintree": "*",
+
+        "magento/module-re-captcha-review": "*",
+
+        "magento/module-grouped-product": "*",
+        "magento/module-grouped-catalog-inventory": "*",
+
+        "magento/module-application-performance-monitor": "*",
+        "magento/module-application-performance-monitor-new-relic": "*",
+
+        "magento/module-order-cancellation": "*",
+        "magento/module-order-cancellation-graph-ql": "*",
+        "magento/module-order-cancellation-ui": "*",
+
+        "magento/payment-services": "*"
+    }
+}

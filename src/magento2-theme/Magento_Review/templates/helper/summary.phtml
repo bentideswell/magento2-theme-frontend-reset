@@ -1,0 +1,20 @@
+<?php
+/**
+ *
+ */
+?>
+<?php if ($block->isReviewEnabled()): ?>
+    <?= $block->getLayout()->createBlock(
+            \FishPig\ThemeApp\Block\Review\Stars::class
+        )->setPercent(
+            $block->getRatingSummary()
+        )->setCount(
+            $block->getReviewsCount()
+        )->setLink(
+            $block->getReviewsUrl() . '#reviews'
+        )->setDisplayIfEmpty(
+            (int)$block->getDisplayIfEmpty()
+        )->setScore(
+            number_format(round($block->getRatingSummary() / 20, 1), 1, '.', '')
+        )->toHtml() ?>
+<?php endif; ?>

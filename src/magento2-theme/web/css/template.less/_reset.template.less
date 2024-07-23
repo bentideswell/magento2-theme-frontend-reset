@@ -1,0 +1,87 @@
+//
+//
+//
+/* @critical:start */
+*, *::before, *::after {
+    //@-all--before-after
+    @-all--before-after__box-sizing: border-box;
+}
+
+* {
+    //@-all
+    @-all__margin: 0;
+    @-all__padding: 0;
+}
+
+html, body {
+    //@html-body
+    @html-body__height: 100%;
+}
+
+html {
+    //@html
+    @html__font-size: 62.5%;
+    @html__text-size-adjust: 100%;
+    @html__-webkit-text-size-adjust: 100%;
+    @html__-ms-text-size-adjust: 100%;
+    @html__font-size-adjust: 100%;
+    @html__scroll-behavior: smooth;
+}
+
+body {
+    //@body
+    @body__-webkit-font-smoothing: antialiased;
+    @body__background-color: #fff;
+    @body__color:            #000;
+    @body__letter-spacing:   false;
+    @body__line-height:      1.5;
+    @body__min-width:        false;
+    @body__font-size:        1.4rem;
+    @body__font-family:      Helvetica, Arial, sans-serif;
+    @body__-moz-osx-font-smoothing: grayscale;
+    @body__overscroll-behavior-x: none;
+}
+
+img {
+    //@img
+    @img__display: block;
+    @img__height: auto;
+    @img__max-width: 100%;
+}
+
+picture, video, canvas, svg {
+    //@html5-block
+    @html5-block__display: block;
+    @html5-block__max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+a {
+    //@a
+    @a__color: #222;
+    @a__text-decoration: underline;
+
+    &:hover {
+        //@a--hover
+    }
+
+    &:visited {
+        //@a--visited
+    }
+}
+/* @critical:stop */

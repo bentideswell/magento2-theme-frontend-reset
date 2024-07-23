@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--/* Stop UrlRewrite Router running twice on requests we don't need it for */-->
+    <type name="Magento\UrlRewrite\Controller\Router">
+        <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\DisableRouterPlugin"/>
+    </type>
+    <type name="Magento\Cms\Controller\Router">
+        <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\DisableRouterPlugin"/>
+    </type>
+</config>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--/** Change page layout class names on body tag */-->
+    <type name="Magento\Framework\View\Page\Config">
+        <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\Magento\Framework\View\Page\ConfigPlugin"/>
+    </type>
+    <!--/** Allow empty htmlTag and htmlClass attributes */-->
+    <type name="Magento\Framework\View\Model\Layout\Update\Validator">
+        <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\Magento\Framework\View\Model\Layout\Update\ValidatorPlugin"/>
+    </type>
+    <!--/** Change favicon URLs */-->
+    <type name="Magento\Framework\View\Page\Config\Renderer">
+        <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\Magento\Framework\View\Page\Config\RendererPlugin"/>
+    </type>
+    <!--/** CSP cleanup */-->
+    <type name="Magento\Csp\Model\Collector\CspWhitelistXml\Data">
+        <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\Magento\Csp\Model\Collector\CspWhitelistXml\DataPlugin"/>
+    </type>
+    <!--/** Stop visitor logging */-->
+    <type name="Magento\Customer\Model\Visitor">
+        <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\Magento\Customer\Model\VisitorPlugin"/>
+    </type>
+    <!--/** Router */-->
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="fishpig" xsi:type="array">
+                    <item name="class" xsi:type="string">FishPig\ThemeApp\Controller\CompositeRouter</item>
+                    <item name="disable" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">30</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="FishPig\ThemeApp\Controller\CompositeRouter">
+        <arguments>
+            <argument name="routers" xsi:type="array">
+                <item name="search" xsi:type="object">FishPig\ThemeApp\Controller\Search\Router</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

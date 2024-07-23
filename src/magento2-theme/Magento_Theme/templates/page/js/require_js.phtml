@@ -1,0 +1,12 @@
+<?php
+/**
+ * JS var init output - minified manually
+ */
+$scriptString = sprintf(
+    "var LOCALE='%s',BASE_URL='%s',require={'baseUrl':'%s'}",
+    $localeFormatter->getLocaleJs(),
+    $block->getBaseUrl(),
+    $block->getViewFileUrl('/')
+);
+
+echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) . "\n";

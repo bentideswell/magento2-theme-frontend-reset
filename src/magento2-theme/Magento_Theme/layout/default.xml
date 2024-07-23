@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="id" value=""/>
+        <attribute name="data-container" value=""/>
+        <referenceBlock name="skip_to_content" remove="true"/>
+        <referenceBlock name="store.links" remove="true"/>
+        <referenceBlock name="store.settings" remove="true"/>
+        <referenceBlock name="header" remove="true"/>
+        <referenceBlock name="store_language" remove="true"/>
+        <referenceBlock name="skip_to_content.target" remove="true"/>
+        <referenceBlock name="catalog.compare.link" remove="true"/>
+        <referenceBlock  name="top.links" remove="true"/>
+        <referenceBlock name="navigation.sections" remove="true"/>
+        <!-- Footer -->
+        <referenceContainer name="footer">
+            <referenceBlock name="footer_links" remove="true"/>
+            <referenceBlock name="copyright" remove="true"/>
+            <referenceBlock name="report.bugs" remove="true"/>
+            <referenceBlock name="store_switcher" remove="true"/>
+        </referenceContainer>
+        <!-- Logo -->
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_src" xsi:type="string">/media/logo.svg</argument>
+                <argument name="image_view_model" xsi:type="object">FishPig\ThemeApp\ViewModel\Image</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

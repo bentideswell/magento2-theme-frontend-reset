@@ -1,0 +1,114 @@
+// Precompiled by FishPig_LessPro
+//
+//
+//
+@-all--before-after__box-sizing: border-box;
+@-all__margin: 0;
+@-all__padding: 0;
+@html-body__height: 100%;
+@html__font-size: 62.5%;
+@html__text-size-adjust: 100%;
+@html__-webkit-text-size-adjust: 100%;
+@html__-ms-text-size-adjust: 100%;
+@html__font-size-adjust: 100%;
+@html__scroll-behavior: smooth;
+@body__-webkit-font-smoothing: antialiased;
+@body__background-color: #fff;
+@body__color:            #000;
+@body__letter-spacing:   false;
+@body__line-height:      1.5;
+@body__min-width:        false;
+@body__font-size:        1.4rem;
+@body__font-family:      Helvetica, Arial, sans-serif;
+@body__-moz-osx-font-smoothing: grayscale;
+@body__overscroll-behavior-x: none;
+@body__overscroll-behavior-y: none;
+@body__tap-highlight-color: transparent;
+@img__display: block;
+@img__height: auto;
+@img__max-width: 100%;
+@html5-block__display: block;
+@html5-block__max-width: 100%;
+@a__color: #222;
+@a__text-decoration: underline;
+
+& when (@media-common = true) {
+    //
+    //
+    //
+    /* @critical:start */
+    *, *::before, *::after {
+        .lib-css(box-sizing, @-all--before-after__box-sizing);
+    }
+    
+    * {
+        .lib-css(margin, @-all__margin);
+        .lib-css(padding, @-all__padding);
+    }
+    
+    html, body {
+        .lib-css(height, @html-body__height);
+    }
+    
+    html {
+        .lib-css(-ms-text-size-adjust, @html__-ms-text-size-adjust);
+        .lib-css(-webkit-text-size-adjust, @html__-webkit-text-size-adjust);
+        .lib-css(font-size, @html__font-size);
+        .lib-css(font-size-adjust, @html__font-size-adjust);
+        .lib-css(scroll-behavior, @html__scroll-behavior);
+        .lib-css(text-size-adjust, @html__text-size-adjust);
+    }
+    
+    body {
+        .lib-css(-moz-osx-font-smoothing, @body__-moz-osx-font-smoothing);
+        .lib-css(-webkit-font-smoothing, @body__-webkit-font-smoothing);
+        .lib-css(background-color, @body__background-color);
+        .lib-css(color, @body__color);
+        .lib-css(font-family, @body__font-family);
+        .lib-css(font-size, @body__font-size);
+        .lib-css(letter-spacing, @body__letter-spacing);
+        .lib-css(line-height, @body__line-height);
+        .lib-css(min-width, @body__min-width);
+        .lib-css(overscroll-behavior-x, @body__overscroll-behavior-x);
+        .lib-css(overscroll-behavior-y, @body__overscroll-behavior-y);
+        .lib-css(-webkit-tap-highlight-color, @body__tap-highlight-color);
+    }
+    
+    img {
+        .lib-css(display, @img__display);
+        .lib-css(height, @img__height);
+        .lib-css(max-width, @img__max-width);
+    }
+    
+    picture, video, canvas, svg {
+        .lib-css(display, @html5-block__display);
+        .lib-css(max-width, @html5-block__max-width);
+    }
+    
+    input, button, textarea, select {
+      font: inherit;
+    }
+    
+    p, h1, h2, h3, h4, h5, h6 {
+        overflow-wrap: break-word;
+    }
+    
+    ol, ul {
+        list-style: none;
+    }
+    
+    b, strong {
+        font-weight: bold;
+    }
+    
+    a {
+        .lib-css(color, @a__color);
+        .lib-css(text-decoration, @a__text-decoration);
+        &:hover {
+        }
+    
+        &:visited {
+        }
+    }
+    /* @critical:stop */
+}

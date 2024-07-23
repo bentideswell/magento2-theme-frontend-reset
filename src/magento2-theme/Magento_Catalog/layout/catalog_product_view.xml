@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="no_js"/>
+    <head>
+        <remove src="mage/gallery/gallery.css"/>
+    </head>
+    <body>
+        <referenceBlock name="product_viewed_counter" remove="true"/>
+        <referenceBlock name="require-cookie" remove="true"/>
+        <referenceBlock name="skip_gallery_after.target" remove="true"/>
+        <referenceBlock name="skip_gallery_before.wrapper" remove="true"/>
+        <referenceBlock name="skip_gallery_after.wrapper" remove="true"/>
+        <referenceBlock name="skip_gallery_before.target" remove="true"/>
+        <referenceBlock name="product_viewed_counter" remove="true"/>
+        <referenceBlock name="product.info.sku" remove="true"/>
+        <referenceBlock name="product.price.tier" remove="true"/>
+        <referenceBlock name="product.info.review" remove="true"/>
+        <referenceBlock name="product.info.mailto" remove="true"/>
+        <referenceContainer name="product.info.price" remove="true"/>
+        <referenceContainer name="product.info.social" remove="true"/>
+    </body>
+</page>

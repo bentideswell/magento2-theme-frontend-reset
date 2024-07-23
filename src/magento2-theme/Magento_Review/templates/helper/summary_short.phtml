@@ -1,0 +1,14 @@
+<?php
+/**
+ *
+ */
+?>
+<?php if ($block->isReviewEnabled()): ?>
+    <?= $block->getLayout()->createBlock(
+            \FishPig\ThemeApp\Block\Review\Stars::class
+        )->setDisplayIfEmpty(
+            $block->getDisplayIfEmpty()
+        )->setPercent(
+            $block->getRatingSummary()
+        )->toHtml() ?>
+<?php endif; ?>

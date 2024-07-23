@@ -1,0 +1,12 @@
+<?php
+/**
+ * FishPig
+ */
+$altText = $block->getAltText() ?? 'Logo';
+$logoTag = $this->getImageViewModel()->convertToInlineTag(
+    $block->getLogoSrc(),
+    ['alt' => $altText]
+);
+
+?>
+<div class=logo><a class="logo" href="/" aria-label="<?= $altText ?>"><?= $logoTag ?></a></div>

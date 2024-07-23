@@ -1,0 +1,343 @@
+<?php
+/**
+ *
+ */
+?>
+<script>
+var fpjs = (function(staticUrl, jsFileExtension) {
+    var staticUrl = staticUrl, queue = {}, map = {}, alias = [];
+
+    alias["validation"] = "fishpig/js/validation";
+    alias['fishpigjs/modal'] = 'FishPig_JsWidgetModal/js/modal';
+    alias["mage/trim-input"] = false;
+
+    /** child.js */
+    <?= $block->getChildHtml('child.js.start') ?>
+    /** End of child.js */
+
+    function _debounce(fn, delay) {
+        var timer = null;
+        return function () {
+            var context = this, args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                fn.apply(context, args);
+            }, delay);
+        };
+    }
+
+    var _forEach = function(els, cb) {
+        els.length > 0 ? [].forEach.call(els, cb) : false;
+    };
+
+    var formKey = (function() {
+        // Init form key
+        var formKey, inputElements, inputSelector = 'input[name="form_key"]';
+
+        function setFormKeyCookie(value) {
+            var expires,
+                secure,
+                date = new Date(),
+                cookiesConfig = window.cookiesConfig || {},
+                isSecure = true,
+                samesite = 'lax';
+
+            date.setTime(date.getTime() + 86400000);
+            expires = '; expires=' + date.toUTCString();
+            secure = isSecure ? '; secure' : '';
+            samesite = '; samesite=' + samesite;
+
+            document.cookie = 'form_key=' + (value || '') + expires + secure + '; path=/' + samesite;
+        };
+
+        function getFormKeyCookie() {
+            var cookie,
+                i,
+                nameEQ = 'form_key=',
+                cookieArr = document.cookie.split(';');
+
+            for (i = 0; i < cookieArr.length; i++) {
+                cookie = cookieArr[i];
+
+                while (cookie.charAt(0) === ' ') {
+                    cookie = cookie.substring(1, cookie.length);
+                }
+
+                if (cookie.indexOf(nameEQ) === 0) {
+                    return cookie.substring(nameEQ.length, cookie.length);
+                }
+            }
+
+            return null;
+        };
+
+        function generateFormKeyString() {
+            var result = '',
+                length = 16,
+                chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+            while (length--) {
+                result += chars[Math.round(Math.random() * (chars.length - 1))];
+            }
+
+            return result;
+        };
+
+        formKey = getFormKeyCookie();
+
+        if (!formKey) {
+            formKey = generateFormKeyString();
+            setFormKeyCookie(formKey);
+        }
+
+        inputElements = document.querySelectorAll(inputSelector);
+
+        if (inputElements.length) {
+            Array.prototype.forEach.call(inputElements, function (element) {
+                element.setAttribute('value', formKey);
+            });
+        }
+
+        return formKey;
+    })();
+
+    var _getFormKey = function() {
+        return formKey;
+    };
+
+    var _define = function(deps, fact) {
+        var id = document.currentScript.getAttribute('data-requiremodule');
+        map[id] = fact();
+    };
+
+    var _require = function (id, config, element) {
+        if (typeof alias[id] !== 'undefined') {
+            if (alias[id]) {
+                id = alias[id];
+            } else if (!alias[id]) {
+                return;
+            }
+        }
+
+        if (typeof queue[id] !== 'undefined') {
+            queue[id].push([config, element]);
+        } else if (typeof map[id] === 'undefined') {
+            queue[id] = [[config, element]];
+            var script = document.createElement('script');
+            script.setAttribute('data-requiremodule', id);
+
+            script.onload = function(ev) {
+                var idx = ev.currentTarget.getAttribute('data-requiremodule');
+                script.parentNode.removeChild(script);
+                queue[id].forEach(function(x) {
+                    map[idx](x[0],x[1]);
+                });
+                delete queue[id];
+            };
+
+            script.src = staticUrl + '/' + id + jsFileExtension;
+            document.head.appendChild(script);
+        } else {
+            map[id](config, element);
+        }
+    };
+
+    var _loader = (function() {
+        var c = '-loader';
+        return {
+            on: function() {
+                document.body.classList.add(c);
+            },
+            off: function() {
+                document.body.classList.remove(c);
+            }
+        };
+    })();
+
+    var _mageInit = function(context) {
+        var els = (context ? context : document).querySelectorAll('*[data-mage-init]');
+        if (els.length > 0) {
+            [].forEach.call(els, function (el) {
+                var dmi = el.getAttribute('data-mage-init');
+                el.removeAttribute('data-mage-init');
+                if (dmi) {
+                    var data = JSON.parse(dmi);
+                    for (key in data) {
+                        if (data.hasOwnProperty(key)) {
+                            _require(key, data[key], el);
+                        }
+                    }
+                }
+            });
+        }
+    };
+
+    var _scriptInit = function() {
+        var scripts = document.querySelectorAll('script[type="text/x-magento-init"]');
+        if (scripts.length>0) {
+            [].forEach.call(scripts, function(script) {
+                script.remove();
+                var datas = JSON.parse(script.innerHTML);
+
+                for (var esel in datas) {
+                    for (var id in datas[esel]) {
+                        _require(id, datas[esel][id], esel === '*' ? null : document.querySelector(esel));
+                    }
+                }
+            });
+        }
+    };
+
+    var _createFormInputs = function(form, data, keyPrefix) {
+        for (key in data) {
+            if (data.hasOwnProperty(key)) {
+                if (typeof data[key] === 'object') {
+                    _createFormInputs(form, data[key], key);
+                } else {
+                    var input = document.createElement('input');
+                    input.name = keyPrefix ? keyPrefix + '[' + key + ']' : key;
+                    input.value = data[key];
+                    form.appendChild(input);
+                }
+            }
+        }
+    };
+
+    var _onDataPostElementClickObserver = function (event) {
+        event.preventDefault();
+        var el = event.currentTarget,
+            data = JSON.parse(el.getAttribute('data-post')),
+            form = document.createElement('form');
+        form.action = data.action;
+        form.method = 'POST';
+        form.style.display = 'none';
+        data.data.form_key = _getFormKey();
+
+        if (typeof data.loader === 'undefined' || data.loader) {
+            _loader.on();
+        }
+
+        _createFormInputs(form, data.data);
+        document.body.appendChild(form);
+        form.submit();
+    };
+
+    var _dataPost = function() {
+        var els = document.querySelectorAll('*[data-post]');
+        if (els.length>0) {
+            [].forEach.call(els, function(el) {
+                el.addEventListener('click', _onDataPostElementClickObserver);
+            });
+        }
+    };
+
+    var _resolveFormKey = function() {
+        var formKey = _getFormKey();
+
+        if (formKey) {
+            _forEach(
+                document.querySelectorAll('form'),
+                function (form) {
+                    var formKeyInput = form.querySelector('input[name="form_key"]');
+
+                    if (formKeyInput === null) {
+                        formKeyInput = document.createElement('input');
+                        formKeyInput.type = 'hidden';
+                        formKeyInput.name = 'form_key';
+                        form.appendChild(formKeyInput);
+                    }
+
+                    formKeyInput.value = formKey;
+                }
+            );
+        }
+    };
+
+    var _dataLoader = function(context) {
+        _forEach(
+            (context ? context : document).querySelectorAll('*[data-loader]'),
+            function (el) {
+                el.addEventListener(
+                    el.tagName === 'FORM' ? 'submit' : 'click',
+                    function(event) {
+                        fpjs.loader.on();
+                    }
+                );
+                el.removeAttribute('data-loader');
+            }
+        );
+    };
+
+    var _requireWhenWidthIs = (function() {
+        var subscriberPool = [];
+        var _isListening = false;
+
+        function _subscribe(width, component, config, element) {
+            subscriberPool.push({width: width, component: component, config: config, element: element});
+            if (!_isListening) {
+                _isListening = true;
+                listen();
+            }
+        };
+
+        function listen() {
+            var onResize = _debounce(function(event) {
+                var clientWidth = document.body.clientWidth;
+                var index = subscriberPool.length;
+
+                while (index--) {
+                    var subscriber = subscriberPool[index];
+                    if (clientWidth <= subscriber.width) {
+                        _require(subscriber.component, subscriber.config, subscriber.element);
+                        subscriberPool.splice(index, 1);
+                    }
+                }
+
+                if (subscriberPool.length === 0) {
+                    window.removeEventListener('resize', onResize);
+                    _isListening = false;
+                }
+            }, 250);
+
+            onResize();
+            window.addEventListener('resize', onResize);
+        };
+
+        return {
+            subscribe: _subscribe
+        };
+    })();
+
+    var _run = function() {
+        _scriptInit();
+        _dataLoader();
+        _mageInit();
+        _dataPost();
+        _resolveFormKey();
+    };
+
+    var publicApi = {
+        define: _define,
+        require: _require,
+        requireWhenWidthIs: _requireWhenWidthIs.subscribe,
+        mageInit: _mageInit,
+        scriptInit: _scriptInit,
+        dataPost: _dataPost,
+        dataLoader: _dataLoader,
+        run: _run,
+        getFormKey: _getFormKey,
+        loader: _loader,
+        resolveFormKey: _resolveFormKey
+    };
+
+    /** child.js */
+    <?= $block->getChildHtml('child.js.end') ?>
+    /** End of child.js */
+
+    return publicApi;
+})('<?= $block->getViewFileUrl('') ?>', '<?= $block->getFileExtension() ?>');
+
+function define(p, f) {
+    return fpjs.define(p, f);
+}
+</script>
