@@ -26,6 +26,7 @@ class ConfigPlugin
         'cms-index-index' => null,
         'contact-index-index' => 'contact',
         'customer-account-login' => 'login',
+        'customer-account-create' => 'register',
         'customer-account-register' => 'register',
         'customer-account-forgotpassword' => 'forgot',
         'customer-account-resetpassword' => 'reset',

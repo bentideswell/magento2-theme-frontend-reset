@@ -21,23 +21,4 @@
     <type name="Magento\Customer\Model\Visitor">
         <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\Magento\Customer\Model\VisitorPlugin"/>
     </type>
-    <!--/** Router */-->
-    <type name="Magento\Framework\App\RouterList">
-        <arguments>
-            <argument name="routerList" xsi:type="array">
-                <item name="fishpig" xsi:type="array">
-                    <item name="class" xsi:type="string">FishPig\ThemeApp\Controller\CompositeRouter</item>
-                    <item name="disable" xsi:type="boolean">false</item>
-                    <item name="sortOrder" xsi:type="string">30</item>
-                </item>
-            </argument>
-        </arguments>
-    </type>
-    <type name="FishPig\ThemeApp\Controller\CompositeRouter">
-        <arguments>
-            <argument name="routers" xsi:type="array">
-                <item name="search" xsi:type="object">FishPig\ThemeApp\Controller\Search\Router</item>
-            </argument>
-        </arguments>
-    </type>
 </config>

@@ -29,9 +29,10 @@
 @img__max-width: 100%;
 @html5-block__display: block;
 @html5-block__max-width: 100%;
-@a__color: #222;
-@a__text-decoration: underline;
-
+@a__color: false;
+@a__text-decoration: false;
+@a-hover__color: false;
+@a-hover__text-decoration: false;
 & when (@media-common = true) {
     //
     //
@@ -104,10 +105,10 @@
     a {
         .lib-css(color, @a__color);
         .lib-css(text-decoration, @a__text-decoration);
+
         &:hover {
-        }
-    
-        &:visited {
+            .lib-css(color, @a-hover__color);
+            .lib-css(text-decoration, @a-hover__text-decoration);
         }
     }
     /* @critical:stop */
