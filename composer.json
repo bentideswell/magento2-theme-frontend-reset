@@ -15,6 +15,7 @@
         "magento/framework": "103.0.*",
         "bentideswell/magento2-toolbox": "*",
         "fishpig/magento2-cart-cookie": "*",
+        "fishpig/magento2-js-widget-modal": "*",
         "fishpig/magento2-smtp": "*",
         "fishpig/magento2-lazy-knockout-js": "*",
         "fishpig/magento2-noroute-logger": "*",

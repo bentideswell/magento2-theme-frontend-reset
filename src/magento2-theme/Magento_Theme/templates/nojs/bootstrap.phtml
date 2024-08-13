@@ -130,7 +130,7 @@ var fpjs = (function(staticUrl, jsFileExtension) {
                 var idx = ev.currentTarget.getAttribute('data-requiremodule');
                 script.parentNode.removeChild(script);
                 queue[id].forEach(function(x) {
-                    map[idx](x[0],x[1]);
+                    typeof x[0] === 'function' ? x[0](map[idx]) : map[idx](x[0],x[1]);
                 });
                 delete queue[id];
             };
@@ -138,7 +138,7 @@ var fpjs = (function(staticUrl, jsFileExtension) {
             script.src = staticUrl + '/' + id + jsFileExtension;
             document.head.appendChild(script);
         } else {
-            map[id](config, element);
+            typeof config === 'function' ? config(map[id]) : map[id](config, element);
         }
     };
 
@@ -339,5 +339,9 @@ var fpjs = (function(staticUrl, jsFileExtension) {
 
 function define(p, f) {
     return fpjs.define(p, f);
+}
+
+function require(id, config, element) {
+    return fpjs.require(id, config, element);
 }
 </script>
