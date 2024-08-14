@@ -26,6 +26,19 @@ var fpjs = (function(staticUrl, jsFileExtension) {
         };
     }
 
+    function _throttle(m,d){let t=null;return(...args)=>{if(t===null){m(...args);t=setTimeout(()=>{t=null;},d);}};}
+
+    function _after(fn, delay) {
+        var timer = null;
+        return function () {
+            var context = this, args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                fn.apply(context, args);
+            }, delay);
+        };
+    }
+    
     var _forEach = function(els, cb) {
         els.length > 0 ? [].forEach.call(els, cb) : false;
     };
@@ -327,7 +340,12 @@ var fpjs = (function(staticUrl, jsFileExtension) {
         run: _run,
         getFormKey: _getFormKey,
         loader: _loader,
-        resolveFormKey: _resolveFormKey
+        resolveFormKey: _resolveFormKey,
+        utils: {
+            throttle: _throttle,
+            debounce: _debounce,
+            after: _after
+        }
     };
 
     /** child.js */
