@@ -70,7 +70,7 @@ class Image implements \Magento\Framework\View\Element\Block\ArgumentInterface
             return null;
         }
 
-        if (($info = @getimagesize($input)) === false) {
+        if (($info = getimagesize($file)) === false) {
             return null;
         }
 
@@ -90,7 +90,7 @@ class Image implements \Magento\Framework\View\Element\Block\ArgumentInterface
                 $sizes,
                 array_keys($sizes)
             ));
-        }
+        } else 
 
         return null;
     }
