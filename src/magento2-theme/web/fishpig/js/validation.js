@@ -77,8 +77,7 @@ define([], function() {
         }
     }
 
-    function validateOnSubmit(ev) {
-        var form = ev.currentTarget;
+    function validate(form) {
         var inputs = form.querySelectorAll('*[data-validate]');
         var hasError = false;
 
@@ -89,7 +88,6 @@ define([], function() {
                 if (result) {
                     hasError = true;
                     inputs[i].classList.add(errorClass);
-                    ev.preventDefault();
                     var inputMsg = inputs[i].nextElementSibling;
 
                     if (!inputMsg || !inputMsg.classList.contains('mage-error')) {
@@ -111,12 +109,25 @@ define([], function() {
             }
         }
 
-        if (hasError === false) {
+        return hasError === false;
+    }
+
+    function validateOnSubmit(e) {
+
+        if (validate(e.currentTarget)) {
             fpjs.loader.on();
+        } else {
+            e.preventDefault();
         }
     };
 
     return function (config, form) {
         form.addEventListener('submit', validateOnSubmit);
+
+        return {
+            validate: function() {
+                return validate(form);
+            }
+        };
     };
 });
