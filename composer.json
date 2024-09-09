@@ -37,7 +37,6 @@
         "fishpig/magento2-remove-downloadable": "*",
         "fishpig/magento2-remove-swatches": "*",
         "fishpig/magento2-remove-compare": "*",
-        "fishpig/magento2-remove-offline-shipping": "*",
         "fishpig/magento2-fpunit": "^1.0",
         "fishpig/magento2-flow": "*",
         "fishpig/magento2-pagespeed": "*",
