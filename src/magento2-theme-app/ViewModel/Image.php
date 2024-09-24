@@ -111,6 +111,8 @@ class Image implements \Magento\Framework\View\Element\Block\ArgumentInterface
             $path = BP . '/pub/' . $path;
         } elseif (strpos($path, 'pub/') === 0) {
             $path = BP . '/' . $path;
+        } elseif (is_file($path)) {
+            $path = $path;
         } else {
             echo $path . __LINE__;exit;
             throw new \InvalidArgumentException(

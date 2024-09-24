@@ -39,7 +39,8 @@ class ConfigPlugin
         'catalog-category-view' => 'category',
         'catalog-product-view' => 'product',
         'cms-page-view' => 'page',
-        'checkout-onepage-success' => 'success'
+        'checkout-onepage-success' => 'success',
+        'catalogsearch-result-index' => 'search'
     ];
 
     /**
