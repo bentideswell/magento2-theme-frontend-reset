@@ -21,4 +21,17 @@
     <type name="Magento\Customer\Model\Visitor">
         <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\Magento\Customer\Model\VisitorPlugin"/>
     </type>
+    <!--/* Allow reverting no_js handle */-->
+    <preference for="Magento\Framework\View\Model\Layout\Merge" type="FishPig\ThemeApp\Framework\View\Model\Layout\Merge"/>
+    <!--/* Example of how to remove no_js handle for a specific route */ -->
+    <!--<type name="FishPig\ThemeApp\Framework\View\Layout\Update\RemoveHandleByRoute">
+        <arguments>
+            <argument name="handleRouteMap" xsi:type="array">
+                <item name="no_js::customer_account_edit" xsi:type="array">
+                    <item name="handle" xsi:type="string">no_js</item>
+                    <item name="route" xsi:type="string">customer_account_edit</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>-->
 </config>
