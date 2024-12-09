@@ -30,6 +30,7 @@ class ConfigPlugin
         'customer-account-register' => 'register',
         'customer-account-forgotpassword' => 'forgot',
         'customer-account-resetpassword' => 'reset',
+        'customer-account-createpassword' => 'createpassword',
         'downloadable-project-index' => 'projects',
         'downloadable-project-view' => 'project',
         'downloadable-product-downloadWait' => 'dwait',
