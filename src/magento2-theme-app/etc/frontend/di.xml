@@ -34,4 +34,15 @@
             </argument>
         </arguments>
     </type>-->
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="fishpig-theme-app" xsi:type="array">
+                    <item name="class" xsi:type="string">FishPig\ThemeApp\Controller\Router</item>
+                    <item name="disable" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">1</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
 </config>
