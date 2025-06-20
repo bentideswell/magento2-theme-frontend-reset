@@ -39,8 +39,7 @@
         "fishpig/magento2-remove-compare": "*",
         "fishpig/magento2-fpunit": "^1.0",
         "fishpig/magento2-flow": "*",
-        "fishpig/magento2-pagespeed": "*",
-        "fishpig/magento2-critical-css": "^1.3"
+        "fishpig/magento2-pagespeed": "*"
     },
     "replace": {
         "magento/language-de_de": "*",
