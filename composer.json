@@ -143,8 +143,6 @@
         "magento/theme-frontend-blank": "*",
         "magento/theme-frontend-luma": "*",
 
-        "paypal/module-braintree": "*",
-
         "magento/module-re-captcha-review": "*",
 
         "magento/module-grouped-product": "*",
