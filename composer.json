@@ -153,8 +153,6 @@
 
         "magento/module-order-cancellation": "*",
         "magento/module-order-cancellation-graph-ql": "*",
-        "magento/module-order-cancellation-ui": "*",
-
-        "magento/payment-services": "*"
+        "magento/module-order-cancellation-ui": "*"
     }
 }
