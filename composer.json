@@ -20,6 +20,7 @@
         "fishpig/magento2-lazy-knockout-js": "*",
         "fishpig/magento2-noroute-logger": "*",
         "fishpig/magento2-force-seo-urls": "*",
+        "fishpig/magento2-remove-analytics": "*",
         "fishpig/magento2-remove-bundle": "*",
         "fishpig/magento2-remove-captcha": "*",
         "fishpig/magento2-remove-new-relic-reporting": "*",
@@ -94,15 +95,7 @@
         "magento/module-swagger-webapi": "*",
         "magento/module-swagger-webapi-async": "*",
 
-        "magento/module-admin-analytics": "*",
         "magento/module-sample-data": "*",
-        "magento/module-analytics": "*",
-        "magento/module-catalog-analytics": "*",
-        "magento/module-customer-analytics": "*",
-        "magento/module-google-analytics": "*",
-        "magento/module-quote-analytics": "*",
-        "magento/module-review-analytics": "*",
-        "magento/module-sales-analytics": "*",
 
         "magento/module-release-notification": "*",
 
