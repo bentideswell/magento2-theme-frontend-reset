@@ -2,6 +2,7 @@
 /**
  *
  */
+
 ?>
 <script>
 var fpjs = (function(staticUrl, jsFileExtension) {
@@ -355,11 +356,16 @@ var fpjs = (function(staticUrl, jsFileExtension) {
     return publicApi;
 })('<?= $block->getViewFileUrl('') ?>', '<?= $block->getFileExtension() ?>');
 
-function define(p, f) {
-    return fpjs.define(p, f);
+
+if (typeof window.define === 'undefined') {
+    function define(p, f) {
+        return fpjs.define(p, f);
+    }
 }
 
-function require(id, config, element) {
-    return fpjs.require(id, config, element);
+if (typeof window.require === 'undefined') {
+    function require(id, config, element) {
+        return fpjs.require(id, config, element);
+    }
 }
 </script>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="FishPig\PageSpeed\Block\Asset\Javascript" name="no.js.bootstrap" template="Magento_Theme::nojs/bootstrap.phtml" after="-">
+                <arguments>
+                    <argument name="minify" xsi:type="boolean">true</argument>
+                </arguments>
+                <container name="no.js.bootstrap.child.js.start" as="child.js.start"/>
+                <container name="no.js.bootstrap.child.js.end" as="child.js.end"/>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="root">
+            <block class="Magento\Framework\View\Element\Template" name="no.js.init" template="Magento_Theme::nojs/init.phtml" after="-"/>
+        </referenceContainer>
+    </body>
+</page>
