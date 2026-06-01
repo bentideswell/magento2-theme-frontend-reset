@@ -121,7 +121,7 @@ var fpjs = (function(staticUrl, jsFileExtension) {
 
     var _define = function(deps, fact) {
         var id = document.currentScript.getAttribute('data-requiremodule');
-        map[id] = fact();
+        map[id] = typeof fact === 'function' ? fact() : deps();
     };
 
     var _require = function (id, config, element) {
