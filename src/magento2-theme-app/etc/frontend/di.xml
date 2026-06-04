@@ -45,4 +45,20 @@
             </argument>
         </arguments>
     </type>
+    <!--/** Stop the Customer Visitor observers from running */-->
+    <type name="Magento\Customer\Observer\Visitor\InitByRequestObserver">
+        <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\DisableCustomerVisitorObserver"/>
+    </type>
+    <type name="Magento\Customer\Observer\Visitor\SaveByRequestObserver">
+        <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\DisableCustomerVisitorObserver"/>
+    </type>
+    <type name="Magento\Customer\Observer\Visitor\BindCustomerLoginObserver">
+        <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\DisableCustomerVisitorObserver"/>
+    </type>
+    <type name="Magento\Customer\Observer\Visitor\BindCustomerLogoutObserver">
+        <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\DisableCustomerVisitorObserver"/>
+    </type>
+    <type name="Magento\Customer\Observer\Visitor\BindQuoteDestroyObserver">
+        <plugin name="fishpig-theme" type="FishPig\ThemeApp\Plugin\DisableCustomerVisitorObserver"/>
+    </type>
 </config>
