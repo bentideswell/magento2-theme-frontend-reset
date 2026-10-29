@@ -11,12 +11,12 @@
         }
     },
     "require": {
-        "php": "~8.2.0",
-        "magento/framework": "103.0.*",
+        "php": "~8.3.0 || ~8.4.0",
+        "magento/framework": "103.0.8.*",
         "bentideswell/magento2-toolbox": "*",
         "fishpig/magento2-cart-cookie": "*",
         "fishpig/magento2-js-widget-modal": "*",
-        "fishpig/magento2-smtp": "*",
+        "fishpig/magento2-smtp": "^1.1",
         "fishpig/magento2-lazy-knockout-js": "*",
         "fishpig/magento2-noroute-logger": "*",
         "fishpig/magento2-force-seo-urls": "*",
